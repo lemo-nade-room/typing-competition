@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>リンクs</title>
+</head>
+<body>
+<p><a href="/admin/challenge">挑戦コース</a></p>
+<p><a href="/admin/room">入退室管理</a></p>
+<p><a href="/admin/record">点数記録</a></p>
+</body>
+</html>

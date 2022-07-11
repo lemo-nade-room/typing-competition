@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>入室管理</title>
+</head>
+<body>
+<script>
+    const exit = async (studentNumber) => {
+        await fetch('/admin/room/' + studentNumber, { method: "DELETE" });
+        //location.reload();
+    }
+</script
+<h1>入室管理</h1>
+<form action="/admin/room" method="POST">
+
+    <p><label for="studentNumber">学籍番号:</label>
+        <input name="id" id="studentNumber" type="number">
+    </p>
+
+    <p>
+
+        <label for="grade">学年:</label>
+        <select name="grade" id="grade">
+            <option value="1">1年</option>
+            <option value="2">2年</option>
+            <option value="3">3年</option>
+            <option value="4">4年</option>
+            <option value="5">5年</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="courseOfStudy">学科</label>
+        <select name="courseOfStudy" id="courseOfStudy">
+            <option value="M">機械工学科</option>
+            <option value="E">電気工学科</option>
+            <option value="S">電子制御工学科</option>
+            <option value="I">情報工学科</option>
+            <option value="C">物質化学工学科</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="name">名前</label>
+        <input type="text" id="name" name="name">
+    </p>
+
+    <p>
+        <label for="nickname">ハンドルネーム</label>
+        <input type="text" id="nickname" name="nickname">
+    </p>
+
+    <input type="submit" value="入室">
+</form>
+
+<div>
+    <h2>入室者一覧</h2>
+    <ul>
+        #for(student in students):
+        <li>#(student.name) <button onclick="exit(#(student.id))">退出</button></li>
+        #endfor
+    </ul>
+</div>
+
+<p><a href="/admin/challenge">挑戦コース</a></p>
+<p><a href="/admin/room">入退室管理</a></p>
+<p><a href="/admin/record">点数記録</a></p>
+
+<script type="module">
+    const studentNumberInputElement = document.getElementById('studentNumber');
+
+    studentNumberInputElement.oninput = async () => {
+        const response = await fetch('/admin/api/student/' + studentNumberInputElement.value);
+        const json = await response.json();
+        if (!json.isRegistered) return;
+        document.getElementById('grade').value = json.student.grade;
+        document.getElementById('courseOfStudy').value = json.student.courseOfStudy;
+        document.getElementById('name').value = json.student.name;
+        document.getElementById('nickname').value = json.student.nickname;
+    };
+</script>
+</body>
+</html>

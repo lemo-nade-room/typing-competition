@@ -1,12 +1,44 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta charset="utf-8">
-
-  <title>#(title)</title>
+    <meta charset="UTF-8">
+    <title>ランキング</title>
 </head>
-
 <body>
-  <h1>#(title)</h1>
+<h1>ランキング</h1>
+
+<div>
+    <h2>総合</h2>
+    <p>1位: #(comprehensive.first.score)点 #(comprehensive.first.info)</p>
+    <p>2位: #(comprehensive.second.score)点 #(comprehensive.second.info)</p>
+    <p>3位: #(comprehensive.third.score)点 #(comprehensive.third.info)</p>
+</div>
+
+<div>
+    <h2>当日</h2>
+
+    <div>
+        <h3>高級</h3>
+        <p>1位: #(high.first.score)点 #(high.first.info)</p>
+        <p>2位: #(high.second.score)点 #(high.second.info)</p>
+        <p>3位: #(high.third.score)点 #(high.third.info)</p>
+    </div>
+
+    <div>
+        <h3>お勧め</h3>
+        <p>1位: #(middle.first.score)点 #(middle.first.info)</p>
+        <p>2位: #(middle.second.score)点 #(middle.second.info)</p>
+        <p>3位: #(middle.third.score)点 #(middle.third.info)</p>
+    </div>
+
+    <div>
+        <h3>お手軽</h3>
+        <p>1位: #(low.first.score)点 #(low.first.info)</p>
+        <p>2位: #(low.second.score)点 #(low.second.info)</p>
+        <p>3位: #(low.last.score)点 #(low.third.info)</p>
+    </div>
+
+</div>
+
 </body>
 </html>

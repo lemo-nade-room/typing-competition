@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>スコア記録</title>
+</head>
+<body>
+<h1>スコア記録</h1>
+<form action="/admin/record" method="POST">
+
+    <p><label for="studentNumber">学籍番号:</label>
+        <select name="studentNumber" id="studentNumber">
+            #for(student in students):
+            <option value="#(student.id)">#(student.grade)#(student.courseOfStudy) #(student.name)</option>
+            #endfor
+        </select>
+    </p>
+
+    <p>
+        <label for="course">コース</label>
+        <select name="course" id="course">
+            <option value="お手軽">お手軽</option>
+            <option value="お勧め">お勧め</option>
+            <option value="高級">高級</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="scorePrice">Score</label>
+        <input type="number" id="scorePrice" name="scorePrice">
+    </p>
+
+    <input type="submit" value="記録">
+</form>
+<p><a href="/admin/challenge">挑戦コース</a></p>
+<p><a href="/admin/room">入退室管理</a></p>
+<p><a href="/admin/record">点数記録</a></p>
+</body>
+</html>

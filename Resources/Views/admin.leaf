@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<form action="/admin" method="POST">
+    <input type="password" name="password">
+    <input type="submit" value="login">
+</form>
+</body>
+</html>
